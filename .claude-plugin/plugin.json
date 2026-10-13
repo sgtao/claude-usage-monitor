@@ -1,0 +1,10 @@
+{
+  "name": "usage-monitor",
+  "version": "0.2.0",
+  "description": "USAGE MONITOR band above the prompt: account rate-limit bars (5h / 7d) with this session's share stacked in, plus the session's tokens and cost.",
+  "author": {
+    "name": "sgtao"
+  },
+  "types": "./types/index.d.ts",
+  "license": "MIT"
+}

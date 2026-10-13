@@ -1,0 +1,13 @@
+{
+  "name": "usage-monitor-mod",
+  "owner": {
+    "name": "sgtao"
+  },
+  "plugins": [
+    {
+      "name": "usage-monitor",
+      "source": "./"
+    }
+  ],
+  "description": "USAGE MONITOR: account rate-limit bars and per-session usage above the Claude Code prompt."
+}
