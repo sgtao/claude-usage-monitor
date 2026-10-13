@@ -1,6 +1,6 @@
-# usage-monitor
+# claude-usage-monitor
 
-Claude Code のプロンプト入力欄の上に **USAGE MONITOR** を表示する mod です。
+Claude Code のプロンプト入力欄の上に **USAGE MONITOR** を表示する mod（プラグイン名: `usage-monitor`）です。
 
 ```
 ╭──────────────────────────────────────────────────────────────╮
@@ -18,13 +18,13 @@ Claude Code のプロンプト入力欄の上に **USAGE MONITOR** を表示す�
 
 ## インストール
 
-ターミナルの Claude Code セッションで次を入力します。`<owner>/<repo>` はこのリポジトリの GitHub 上の場所に置き換えてください。
+ターミナルの Claude Code セッションで次を入力します。`<owner>` は、このリポジトリ（`claude-usage-monitor`）を置いている GitHub のユーザー名または組織名に置き換えてください。
 
 ```
-/plugin install usage-monitor --marketplace <owner>/<repo>
+/plugin install usage-monitor --marketplace <owner>/claude-usage-monitor
 ```
 
-`Add marketplace?` には `y`、続くスコープ選択は Enter（user スコープ）で進めます。ローカルのフォルダから入れる場合は、`<owner>/<repo>` の代わりにこのフォルダのパスを指定できます。
+`Add marketplace?` には `y`、続くスコープ選択は Enter（user スコープ）で進めます。ローカルのフォルダから入れる場合は、`<owner>/claude-usage-monitor` の代わりにクローンしたフォルダのパスを指定できます。
 
 `/usage-monitor` でバンドの表示/非表示を切り替えられます（`[x]` でも隠せます）。
 
