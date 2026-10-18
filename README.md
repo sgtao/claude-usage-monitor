@@ -1,9 +1,11 @@
 # claude-usage-monitor
 
-## 概要
-Claude Code のプロンプト入力欄の上に **USAGE MONITOR** を表示する mod（プラグイン名: `usage-monitor`）です。
+**English** | [日本語](README.ja.md)
 
-### screenshot
+## Overview
+A mod (plugin name: `usage-monitor`) that shows a **USAGE MONITOR** above the prompt input in Claude Code.
+
+### Screenshot
 ```
 ╭──────────────────────────────────────────────────────────────╮
 │ USAGE MONITOR           ■ account ■ this session ░ free   [x] │
@@ -15,53 +17,53 @@ Claude Code のプロンプト入力欄の上に **USAGE MONITOR** を表示す�
 
 ![image](./assets/images/screenshot.png)
 
-### 機能
-- **5h / 7d**: アカウントのレート制限の使用率。バーのうち、マゼンタがこのセッションで使った分、シアンがそれ以外、`░` が空き。右端はリセットまでの時間。
-- **+x.x%**: このセッションで最初に読み取れた使用率からの増分（再起動すると 0 に戻ります）。
-- **ses**: このセッションの合計トークン（入力・出力・キャッシュ）と、in / out / cache の内訳、費用。
-- サブスクリプションでない環境など、レート制限の値が取れない場合は「waiting for the first rate-limit reading…」と出ます。
+### Features
+- **5h / 7d**: Usage of your account's rate limits. In each bar, magenta is what this session used, cyan is everything else, and `░` is free. The time on the right is how long until the limit resets.
+- **+x.x%**: The increase since the first usage reading this session captured (it goes back to 0 when you restart).
+- **ses**: This session's total tokens (input, output, cache), the in / out / cache breakdown, and the cost.
+- When rate-limit values can't be read, such as in environments without a subscription, "waiting for the first rate-limit reading…" is shown.
 
-## インストール
+## Installation
 
-ターミナルの Claude Code セッションで次を入力します。`<owner>` は、このリポジトリ（`claude-usage-monitor`）を置いている GitHub のユーザー名または組織名に置き換えてください。
+In a Claude Code session in the terminal, enter the following. Replace `<owner>` with the GitHub user or organization name that hosts this repository (`claude-usage-monitor`).
 
 ```
 /plugin install usage-monitor --marketplace <owner>/claude-usage-monitor
 ```
 
-`Add marketplace?` には `y`、続くスコープ選択は Enter（user スコープ）で進めます。ローカルのフォルダから入れる場合は、`<owner>/claude-usage-monitor` の代わりにクローンしたフォルダのパスを指定できます。
+Answer `y` to `Add marketplace?`, and press Enter at the scope prompt that follows (user scope). To install from a local folder, give the path of the cloned folder instead of `<owner>/claude-usage-monitor`.
 
-`/usage-monitor` でバンドの表示/非表示を切り替えられます（`[x]` でも隠せます）。
+You can toggle the band on and off with `/usage-monitor` (or hide it with `[x]`).
 
-### クローン／tarball からインストール（`scripts/install.sh`）
+### Install from a clone or tarball (`scripts/install.sh`)
 
-リポジトリをクローン（または tarball を展開）したフォルダから、コピー先を選んでインストールできます。コピーしたあと `claude plugin marketplace add` と `claude plugin install` まで実行します。
+From the folder where you cloned the repository (or extracted a tarball), you can choose where to install. After copying, the script also runs `claude plugin marketplace add` and `claude plugin install`.
 
 ```sh
-bash scripts/install.sh                  # ユーザー: ~/.claude/plugins/claude-usage-monitor へコピー（user スコープ）
-bash scripts/install.sh --project [DIR]  # リポジトリ: DIR(省略時はカレント)/.claude/plugins/claude-usage-monitor へコピー（project スコープ）
-bash scripts/install.sh --target DIR     # 任意: DIR/claude-usage-monitor へコピー（user スコープ）
+bash scripts/install.sh                  # user: copy to ~/.claude/plugins/claude-usage-monitor (user scope)
+bash scripts/install.sh --project [DIR]  # repository: copy to DIR (default: current directory)/.claude/plugins/claude-usage-monitor (project scope)
+bash scripts/install.sh --target DIR     # any: copy to DIR/claude-usage-monitor (user scope)
 ```
 
-| オプション | 意味 |
+| Option | Meaning |
 |---|---|
-| `-y`, `--yes` | 確認なしで実行 |
-| `--no-register` | コピーだけ行い、`claude` への登録はしない |
-| `--dry-run` | 何も変更せず、実行内容だけ表示 |
+| `-y`, `--yes` | Run without asking for confirmation |
+| `--no-register` | Only copy; do not register with `claude` |
+| `--dry-run` | Change nothing; only show what would be done |
 
-- プラグインはコピー先から読み込まれます。インストール後にコピー先を移動・削除しないでください。
-- マーケットプレイス名 `claude-usage-monitor` の登録は 1 つだけです（user / project 共通）。既に別の登録元（GitHub など）で入れている場合は、実行前の表示で警告し、登録先が付け替わります。
-- `--project` の設定は `<DIR>/.claude/settings.json` に絶対パスで書かれます。チームで共有する場合は、各自が `install.sh` を実行してください。
-- 更新するときは、新しい内容を取得したうえで同じコマンドをもう一度実行し、`/reload-plugins` を入力します。
+- The plugin is loaded from the install location. Do not move or delete it after installing.
+- Only one registration exists for the marketplace name `claude-usage-monitor` (shared by user and project scopes). If it is already registered from another source (such as GitHub), the script warns you before running, and the registration is repointed.
+- The `--project` setting is written to `<DIR>/.claude/settings.json` with an absolute path. When sharing with a team, have each person run `install.sh`.
+- To update, fetch the new content, run the same command again, and enter `/reload-plugins`.
 
-## 配り方・入れ方の詳しい手順（非エンジニア向け）
+## Detailed distribution and installation guide (for non-engineers)
 
-[docs/share-and-install-guide.md](docs/share-and-install-guide.md) に、配る人・使う人それぞれの手順、画面の見方、オフ・削除の方法、困ったときの対処をまとめています。
+[docs/share-and-install-guide.md](docs/share-and-install-guide.md) (in Japanese) covers, for both the person distributing the plugin and the person using it, the steps, how to read the screen, how to turn it off or remove it, and what to do when something goes wrong.
 
-## 開発
-開発中の確認用コマンドです。
-- 設定とコードの形を検証し、テストでロジックを確かめ、実際に起動して画面の動きを見ます
-- 形（validate）→ ロジック（test）→ 実際の動き（--plugin-dir）の順に確認します
+## Development
+Commands for checking your work during development.
+- Validate the configuration and the shape of the code, verify the logic with tests, and run the plugin for real to see how it behaves on screen
+- Check in this order: shape (validate) → logic (test) → actual behavior (--plugin-dir)
 
 ```sh
 claude plugin validate .
@@ -69,20 +71,20 @@ claude plugin test .
 claude --plugin-dir .
 ```
 
-### push 前の自動チェック（pre-push フック）
+### Automatic check before push (pre-push hook)
 
-`git push` の前に、`claude plugin validate .` と `claude plugin test .` を自動で実行します。どちらかが失敗すると push は中止されます。チェックするのは作業ツリーではなく、push されるコミットの内容です。
+Before `git push`, `claude plugin validate .` and `claude plugin test .` run automatically. If either fails, the push is aborted. What is checked is the content of the commits being pushed, not the working tree.
 
 ```bash
-bash scripts/setup-hooks.sh            # この clone で有効化（core.hooksPath = .githooks）
-bash scripts/setup-hooks.sh --remove   # 無効化
-git push --no-verify                   # 1 回だけ回避
+bash scripts/setup-hooks.sh            # enable in this clone (core.hooksPath = .githooks)
+bash scripts/setup-hooks.sh --remove   # disable
+git push --no-verify                   # bypass once
 ```
 
-- フックの設定は clone ごとに必要です（`.git/config` に書かれ、リポジトリには含まれません）。
-- `claude` コマンドが PATH にない環境（GUI の Git クライアントなど）では、push が中止されます。
+- The hook setting is needed in each clone (it is written to `.git/config` and is not part of the repository).
+- In environments where the `claude` command is not on PATH (such as GUI Git clients), the push is aborted.
 
-## ライセンス
+## License
 
 [MIT](LICENSE)
 

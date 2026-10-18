@@ -23,7 +23,7 @@ set -euo pipefail
 
 # ─── 設定 ─────────────────────────────────────────────────────────────────────
 PLUGINS_DIR_DEFAULT="${HOME}/.claude/plugins"
-PAYLOAD_ITEMS=".claude-plugin hooks types docs README.md LICENSE"   # コピー対象（.git などは含めない）
+PAYLOAD_ITEMS=".claude-plugin hooks types docs README.md README.ja.md LICENSE"   # コピー対象（.git などは含めない）
 MODE=""            # user | project | target
 PROJECT_DIR=""     # --project のリポジトリ
 TARGET_DIR=""      # --target のコピー先
