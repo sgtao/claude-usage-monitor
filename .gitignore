@@ -1,0 +1,8 @@
+# 1. Claude Code（mods 機能）が自動生成する型定義
+#    .claude-plugin/types/ は自前の .gitignore（`*`）で全体が除外される。念のためルートでも明示する
+.claude-plugin/types/
+
+# 2. OS / Editor
+.DS_Store
+.idea/
+.vscode/
