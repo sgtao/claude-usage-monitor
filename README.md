@@ -32,7 +32,7 @@ Claude Code のプロンプト入力欄の上に **USAGE MONITOR** を表示す�
 
 リポジトリをクローン（または tarball を展開）したフォルダから、コピー先を選んでインストールできます。コピーしたあと `claude plugin marketplace add` と `claude plugin install` まで実行します。
 
-```bash
+```sh
 bash scripts/install.sh                  # ユーザー: ~/.claude/plugins/claude-usage-monitor へコピー（user スコープ）
 bash scripts/install.sh --project [DIR]  # リポジトリ: DIR(省略時はカレント)/.claude/plugins/claude-usage-monitor へコピー（project スコープ）
 bash scripts/install.sh --target DIR     # 任意: DIR/claude-usage-monitor へコピー（user スコープ）
@@ -54,8 +54,11 @@ bash scripts/install.sh --target DIR     # 任意: DIR/claude-usage-monitor へ�
 [docs/share-and-install-guide.md](docs/share-and-install-guide.md) に、配る人・使う人それぞれの手順、画面の見方、オフ・削除の方法、困ったときの対処をまとめています。
 
 ## 開発
+開発中の確認用コマンドです。
+- 設定とコードの形を検証し、テストでロジックを確かめ、実際に起動して画面の動きを見ます
+- 形（validate）→ ロジック（test）→ 実際の動き（--plugin-dir）の順に確認します
 
-```
+```sh
 claude plugin validate .
 claude plugin test .
 claude --plugin-dir .
