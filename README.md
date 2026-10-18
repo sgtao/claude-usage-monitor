@@ -28,6 +28,10 @@ Claude Code のプロンプト入力欄の上に **USAGE MONITOR** を表示す�
 
 `/usage-monitor` でバンドの表示/非表示を切り替えられます（`[x]` でも隠せます）。
 
+## 配り方・入れ方の詳しい手順（非エンジニア向け）
+
+[docs/share-and-install-guide.md](docs/share-and-install-guide.md) に、配る人・使う人それぞれの手順、画面の見方、オフ・削除の方法、困ったときの対処をまとめています。
+
 ## 開発
 
 ```
