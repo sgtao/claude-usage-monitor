@@ -116,7 +116,7 @@ export const register: Register = on => {
             <Text dimColor>░</Text>
             <Text> free </Text>
           </Text>
-          <Button key="hide" label="[x]" onPress={() => update($, isHidden, () => true)} />
+          <Button key="hide" label="x" onPress={() => update($, isHidden, () => true)} />
         </Box>
         {lim.length === 0 ? (
           <Text dimColor>waiting for the first rate-limit reading…</Text>

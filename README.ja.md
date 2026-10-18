@@ -8,7 +8,7 @@ Claude Code のプロンプト入力欄の上に **USAGE MONITOR** を表示す�
 ### screenshot
 ```
 ╭──────────────────────────────────────────────────────────────╮
-│ USAGE MONITOR           ■ account ■ this session ░ free   [x] │
+│ USAGE MONITOR           ■ account ■ this session ░ free [ x ] │
 │ 5h [██████░░░░░░░░░░░░░░░░░░] 12.0% +3.1% ⟳ 4h51m             │
 │ 7d [█░░░░░░░░░░░░░░░░░░░░░░░]  4.0% +0.4% ⟳ 4d19h             │
 │ ses 445.1k tok │ in 16.3k out 3.7k cache 425.0k │ cost $1.85  │
