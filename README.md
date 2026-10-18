@@ -69,6 +69,19 @@ claude plugin test .
 claude --plugin-dir .
 ```
 
+### push 前の自動チェック（pre-push フック）
+
+`git push` の前に、`claude plugin validate .` と `claude plugin test .` を自動で実行します。どちらかが失敗すると push は中止されます。チェックするのは作業ツリーではなく、push されるコミットの内容です。
+
+```bash
+bash scripts/setup-hooks.sh            # この clone で有効化（core.hooksPath = .githooks）
+bash scripts/setup-hooks.sh --remove   # 無効化
+git push --no-verify                   # 1 回だけ回避
+```
+
+- フックの設定は clone ごとに必要です（`.git/config` に書かれ、リポジトリには含まれません）。
+- `claude` コマンドが PATH にない環境（GUI の Git クライアントなど）では、push が中止されます。
+
 ## ライセンス
 
 [MIT](LICENSE)
