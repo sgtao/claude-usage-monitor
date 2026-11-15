@@ -109,7 +109,9 @@ export const register: Register = on => {
     const cost = await read($, usd)
     const now = await $.clock.now()
 
-    const width = Math.max(10, Math.min(60, e.props.bodyColumns - 42))
+    // 42 columns go to the label, numbers and reset time. `█` is drawn ~1.3 cells wide in the desktop
+    // app's font, so only ~3/4 of the remaining columns are used for the bar to keep the row from overflowing.
+    const width = Math.max(10, Math.min(45, Math.floor((e.props.bodyColumns - 42) * 0.75)))
     const gain = (l: Limit): number => Math.max(0, l.percentUsed - (b[l.kind] ?? l.percentUsed))
     const total = t.input + t.output + t.cacheRead + t.cacheWrite
 
