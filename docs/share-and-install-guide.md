@@ -52,7 +52,7 @@ Claude Code の入力欄の上に「使った量のメーター」を出す、**
 #### 準備するもの
 
 - GitHub のアカウント（無料。<https://github.com> で作成）
-- このフォルダ（`1014_claude-usage-monitor-mod`）。すでに `git` で管理済みです
+- このフォルダ（リポジトリのルート。以下 `<リポジトリのフォルダ>` と書きます）。すでに `git` で管理済みです
 
 #### 手順
 
@@ -65,7 +65,7 @@ Claude Code の入力欄の上に「使った量のメーター」を出す、**
 2. **手元のフォルダを GitHub に送る**（ターミナルで実行）。`<あなたのGitHubユーザー名>` は自分の名前に置き換えます。
 
    ```bash
-   cd /Users/sgtao/idea/2026_ideas/1010_develop-with-claude/1014_claude-usage-monitor-mod
+   cd <リポジトリのフォルダ>
    git branch -M main
    git remote add origin git@github.com:<あなたのGitHubユーザー名>/claude-usage-monitor.git
    git push -u origin main
@@ -97,7 +97,7 @@ GitHub を使わず、**zip ファイル 1 つ**で渡す方法です。社内�
 1. **変更を確定（コミット）しておく。** zip には「確定済みの内容」だけが入ります。未確定の変更があると、zip に入りません。ターミナルで次を実行し、何も表示されなければ OK です。
 
    ```bash
-   cd /Users/sgtao/idea/2026_ideas/1010_develop-with-claude/1014_claude-usage-monitor-mod
+   cd <リポジトリのフォルダ>
    git status --short
    ```
 
@@ -154,7 +154,7 @@ GitHub を使わず、**zip ファイル 1 つ**で渡す方法です。社内�
 インストールせず、そのセッションだけ動かせます。「入れる前に見せたい」ときに使います。
 
 ```bash
-claude --plugin-dir /フォルダの場所/1014_claude-usage-monitor-mod
+claude --plugin-dir <リポジトリのフォルダ>
 ```
 
 終了すると元に戻ります（何も残りません）。

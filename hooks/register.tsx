@@ -21,6 +21,13 @@ const LABEL: Record<string, string> = {
   spend_limit: '$ ',
 }
 
+/**
+ * One glyph for every bar cell. The "free" part used to be `░`, but in some renderers (e.g. the
+ * desktop app's fallback font) `░` is narrower than `█`, so the filled part looked ~10% longer
+ * than its real share. Using the same glyph keeps each cell the same width; "free" is just dimmed.
+ */
+const BAR = '█'
+
 /** Cells of a stacked bar: account share, this session's share, the rest free. */
 export const segments = (
   percent: number,
@@ -75,6 +82,8 @@ export const register: Register = on => {
 
   on('turn.complete', async ($, e, next) => {
     const u = e.usage
+    // Count only the main conversation: turns with an agentId come from subagents and are
+    // deliberately left out, so `ses` shows this conversation's own usage.
     if (e.agentId === undefined && u !== undefined) {
       await update($, tokens, t => ({
         input: t.input + u.input_tokens,
@@ -113,7 +122,7 @@ export const register: Register = on => {
             <Text> account </Text>
             <Text color="magenta">■</Text>
             <Text> this session </Text>
-            <Text dimColor>░</Text>
+            <Text dimColor>{BAR}</Text>
             <Text> free </Text>
           </Text>
           <Button key="hide" label="x" onPress={() => update($, isHidden, () => true)} />
@@ -130,9 +139,9 @@ export const register: Register = on => {
                 <Text bold>{LABEL[l.kind] ?? l.kind}</Text>
                 <Text>
                   <Text dimColor>[</Text>
-                  <Text color="cyan">{'█'.repeat(s.account)}</Text>
-                  <Text color="magenta">{'█'.repeat(s.session)}</Text>
-                  <Text dimColor>{'░'.repeat(s.free)}</Text>
+                  <Text color="cyan">{BAR.repeat(s.account)}</Text>
+                  <Text color="magenta">{BAR.repeat(s.session)}</Text>
+                  <Text dimColor>{BAR.repeat(s.free)}</Text>
                   <Text dimColor>]</Text>
                 </Text>
                 <Text color="cyan">{l.percentUsed.toFixed(1)}%</Text>

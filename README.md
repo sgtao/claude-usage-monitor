@@ -18,9 +18,9 @@ A mod (plugin name: `usage-monitor`) that shows a **USAGE MONITOR** above the pr
 ![image](./assets/images/screenshot.png)
 
 ### Features
-- **5h / 7d**: Usage of your account's rate limits. In each bar, magenta is what this session used, cyan is everything else, and `░` is free. The time on the right is how long until the limit resets.
-- **+x.x%**: The increase since the first usage reading this session captured (it goes back to 0 when you restart).
-- **ses**: This session's total tokens (input, output, cache), the in / out / cache breakdown, and the cost.
+- **5h / 7d**: Usage of your account's rate limits. In each bar, magenta is what this session used, cyan is everything else, and the dimmed blocks are free. The time on the right is how long until the limit resets.
+- **+x.x%**: The increase since the first usage reading this session captured (it goes back to 0 when you restart). It is an estimate: it is the rise in your account-wide usage, so use by other sessions or devices on the same account during that time is included too.
+- **ses**: This session's total tokens (input, output, cache), the in / out / cache breakdown, and the cost. Only the main conversation is counted; subagent usage is not included.
 - When rate-limit values can't be read, such as in environments without a subscription, "waiting for the first rate-limit reading…" is shown.
 
 ## Installation
